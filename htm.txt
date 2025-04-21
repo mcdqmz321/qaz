@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <style>
+        body { text-align: center; padding: 50px; }
+        #countdown { font-size: 3em; color: red; }
+    </style>
+</head>
+<body>
+    <div id="countdown">计算中...</div>
+
+    <script>
+        // 设置截止日期（⚠️修改这里的日期）
+        const endDate = new Date('2025-04-21').getTime();
+
+        function update() {
+            const now = new Date().getTime();
+            const days = Math.ceil((endDate - now)/(1000*60*60*24));
+            
+            document.getElementById("countdown").innerHTML = 
+                `剩余天数：${days > 0 ? days : "已截止"}`;
+        }
+        
+        update(); // 立即执行
+        setInterval(update, 60000); // 每分钟更新
+    </script>
+</body>
+</html>
